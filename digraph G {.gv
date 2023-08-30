@@ -1,0 +1,118 @@
+digraph G {
+  graph [ ratio = "auto", page = "100", compound =true, bgcolor = "#2e3e56" ];
+  node [ style = "filled", fillcolor = "#edad56", color = "#edad56", penwidth =3 ];
+  edge [ color = "#fcfcfc", penwidth =2, fontname = "helvetica Neue Ultra Light" ];
+subgraph "clusterLending_Borrowing" {
+  graph [ label = "Lending_Borrowing", color = "#445773", fontcolor = "#f0f0f0", style = "rounded", bgcolor = "#445773" ];
+  "Lending_Borrowing.deposit" [ label = "deposit", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing.withdraw" [ label = "withdraw", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing._pullFunds" [ label = "_pullFunds" ];
+  "Lending_Borrowing.borrow" [ label = "borrow", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing.liquidate" [ label = "liquidate", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing.repay" [ label = "repay", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing._repay" [ label = "_repay" ];
+  "Lending_Borrowing.getAccountInformation" [ label = "getAccountInformation", color = "#FF9797", fillcolor = "#FF9797" ];
+  "Lending_Borrowing.getAccountCollateralValue" [ label = "getAccountCollateralValue" ];
+  "Lending_Borrowing.getAccountBorrowedValue" [ label = "getAccountBorrowedValue" ];
+  "Lending_Borrowing.getEthValue" [ label = "getEthValue" ];
+  "Lending_Borrowing.getTokenValueFromEth" [ label = "getTokenValueFromEth" ];
+  "Lending_Borrowing.healthFactor" [ label = "healthFactor" ];
+  "Lending_Borrowing.isAllowedToken" [ label = "isAllowedToken", color = "#1bc6a6", shape =doubleoctagon ];
+  "Lending_Borrowing.moreThanZero" [ label = "moreThanZero", color = "#1bc6a6", shape =doubleoctagon ];
+  "Lending_Borrowing.setAllowedToken" [ label = "setAllowedToken", color = "#ffbdb9", fillcolor = "#ffbdb9" ];
+  "Lending_Borrowing.IERC20" [ label = "IERC20" ];
+  "Lending_Borrowing.address" [ label = "address" ];
+  "Lending_Borrowing.TransferFailed" [ label = "TransferFailed" ];
+  "Lending_Borrowing.AggregatorV3Interface" [ label = "AggregatorV3Interface" ];
+  "Lending_Borrowing.TokenNotAllowed" [ label = "TokenNotAllowed" ];
+  "Lending_Borrowing.NeedsMoreThanZero" [ label = "NeedsMoreThanZero" ];
+}
+
+subgraph "clusterAggregatorV3Interface" {
+  graph [ label = "AggregatorV3Interface", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "AggregatorV3Interface.latestRoundData" [ label = "latestRoundData" ];
+}
+
+  "Lending_Borrowing.deposit";
+  "Lending_Borrowing.IERC20";
+  "Lending_Borrowing.address";
+  "Lending_Borrowing.TransferFailed";
+  "Lending_Borrowing.withdraw";
+  "Lending_Borrowing._pullFunds";
+  "Lending_Borrowing.healthFactor";
+  "Lending_Borrowing.borrow";
+  "Lending_Borrowing.liquidate";
+  "Lending_Borrowing.getEthValue";
+  "Lending_Borrowing.getTokenValueFromEth";
+  "Lending_Borrowing._repay";
+  "Lending_Borrowing.repay";
+  "Lending_Borrowing.getAccountInformation";
+  "Lending_Borrowing.getAccountBorrowedValue";
+  "Lending_Borrowing.getAccountCollateralValue";
+  "Lending_Borrowing.AggregatorV3Interface";
+  "AggregatorV3Interface.latestRoundData";
+  "Lending_Borrowing.isAllowedToken";
+  "Lending_Borrowing.TokenNotAllowed";
+  "Lending_Borrowing.moreThanZero";
+  "Lending_Borrowing.NeedsMoreThanZero";
+  "Lending_Borrowing.deposit" -> "Lending_Borrowing.IERC20" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.deposit" -> "Lending_Borrowing.address" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.deposit" -> "Lending_Borrowing.TransferFailed" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.withdraw" -> "Lending_Borrowing._pullFunds" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.withdraw" -> "Lending_Borrowing.healthFactor" [ color = "#1bc6a6" ];
+  "Lending_Borrowing._pullFunds" -> "Lending_Borrowing.IERC20" [ color = "#1bc6a6" ];
+  "Lending_Borrowing._pullFunds" -> "Lending_Borrowing.TransferFailed" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.borrow" -> "Lending_Borrowing.IERC20" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.borrow" -> "Lending_Borrowing.address" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.borrow" -> "Lending_Borrowing.IERC20" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.borrow" -> "Lending_Borrowing.TransferFailed" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.borrow" -> "Lending_Borrowing.healthFactor" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.liquidate" -> "Lending_Borrowing.healthFactor" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.liquidate" -> "Lending_Borrowing.getEthValue" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.liquidate" -> "Lending_Borrowing.getTokenValueFromEth" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.liquidate" -> "Lending_Borrowing._repay" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.liquidate" -> "Lending_Borrowing._pullFunds" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.repay" -> "Lending_Borrowing._repay" [ color = "#1bc6a6" ];
+  "Lending_Borrowing._repay" -> "Lending_Borrowing.IERC20" [ color = "#1bc6a6" ];
+  "Lending_Borrowing._repay" -> "Lending_Borrowing.address" [ color = "#1bc6a6" ];
+  "Lending_Borrowing._repay" -> "Lending_Borrowing.TransferFailed" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getAccountInformation" -> "Lending_Borrowing.getAccountBorrowedValue" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getAccountInformation" -> "Lending_Borrowing.getAccountCollateralValue" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getAccountCollateralValue" -> "Lending_Borrowing.getEthValue" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getAccountBorrowedValue" -> "Lending_Borrowing.getEthValue" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getEthValue" -> "Lending_Borrowing.AggregatorV3Interface" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getEthValue" -> "AggregatorV3Interface.latestRoundData" [ color = "white" ];
+  "Lending_Borrowing.getTokenValueFromEth" -> "Lending_Borrowing.AggregatorV3Interface" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.getTokenValueFromEth" -> "AggregatorV3Interface.latestRoundData" [ color = "white" ];
+  "Lending_Borrowing.healthFactor" -> "Lending_Borrowing.getAccountInformation" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.isAllowedToken" -> "Lending_Borrowing.address" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.isAllowedToken" -> "Lending_Borrowing.TokenNotAllowed" [ color = "#1bc6a6" ];
+  "Lending_Borrowing.moreThanZero" -> "Lending_Borrowing.NeedsMoreThanZero" [ color = "#1bc6a6" ];
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td align="right" port="i1">Internal Call</td></tr>
+  <tr><td align="right" port="i2">External Call</td></tr>
+  <tr><td align="right" port="i3">Defined Contract</td></tr>
+  <tr><td align="right" port="i4">Undefined Contract</td></tr>
+  </table>>]
+key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td port="i1">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i2">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i3" bgcolor="#445773">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i4">
+    <table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="#e8726d">
+      <tr>
+       <td></td>
+      </tr>
+     </table>
+  </td></tr>
+  </table>>]
+key:i1:e -> key2:i1:w [color="#1bc6a6"]
+key:i2:e -> key2:i2:w [color="white"]
+}
+}
